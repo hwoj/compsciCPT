@@ -1,4 +1,4 @@
-package com.example.SMCSLearn;
+package com.example.SMCSLearn.smcslearn;
 
 
 import org.springframework.web.bind.annotation.*;
@@ -52,6 +52,6 @@ public class PersonalityController {
     RestTemplate restTemplate;
     @PostMapping(path = "/personality",consumes = "application/json", produces = "application/json")
     public void receiveAnswers(@RequestBody String[] answers){
-        String[] responses = answers;
+
     }
 }
