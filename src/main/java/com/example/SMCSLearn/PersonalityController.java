@@ -50,7 +50,7 @@ public class PersonalityController {
         return questions;
     }
     RestTemplate restTemplate;
-    @PostMapping(path = "/personality",consumes = "application/json", produces = "application/json")
+    @PostMapping(path = "/personality",consumes = "application/json")
     public void receiveAnswers(@RequestBody String[] answers){
         String[] responses = answers;
     }
