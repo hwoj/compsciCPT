@@ -9,6 +9,7 @@ public class User {
     private int eager_score;
     private int agree_score;
     private int extro_score;
+    private int tutor_link;
 
     public User(int id, String fname , String lname, String email, int crit_score, int eager_score, int agree_score, int extro_score){
         this.id = id;
