@@ -9,10 +9,15 @@ import javax.persistence.Id;
 public class Tutor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
     private String fName;
     private String lName;
     private int gradYear;
+    private int crit_score;
+    private int eager_score;
+    private int agree_score;
+    private int extro_score;
+    private int tutor_link;
 
     protected Tutor() {};
 
@@ -33,7 +38,7 @@ public class Tutor {
         return lName;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
