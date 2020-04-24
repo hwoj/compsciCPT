@@ -50,8 +50,8 @@ public class PersonalityController {
         return questions;
     }
     RestTemplate restTemplate;
-    @PostMapping(path = "/personality",consumes = "application/json", produces = "application/json")
-    public void receiveAnswers(@RequestBody String[] answers){
+    @PostMapping(path = "/personality",consumes = "application/json")
+    public void receiveAnswers(@RequestBody String[] answers,@RequestParam(value = "id")int id){
         String[] responses = answers;
     }
 }
