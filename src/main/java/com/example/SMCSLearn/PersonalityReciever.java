@@ -1,16 +1,16 @@
 package com.example.SMCSLearn;
 
 import org.springframework.web.bind.annotation.RequestParam;
-import com.example.SMCSLearn.Answer;
+//import com.example.SMCSLearn.Answer;
 import org.graalvm.compiler.lir.CompositeValue;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@PostMapping("/personality")
-@CrossOrigin("http://localhost:4200")
+//@PostMapping("/personality")
+//@CrossOrigin("http://localhost:4200")
 public class PersonalityReciever {
-    @RequestParam(value = "id")
+ //   @RequestParam(value = "id")
 
     String JP;
     String EI;
@@ -23,7 +23,7 @@ public class PersonalityReciever {
     int thinking_score;
 
 
-    for(int i = 0;i<9;i++) {
+   /* for(int i = 0;i<9;i++) {
         if (Answer[i] == 0) {
             judging_score++;
         } else if (Answer[i] == 1) {
@@ -108,5 +108,7 @@ public class PersonalityReciever {
     }
 
     users[id].Personality = JP+EI+TF+SI;
+    */
+
 }
 
