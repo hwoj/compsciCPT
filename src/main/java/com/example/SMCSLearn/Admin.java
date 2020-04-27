@@ -5,6 +5,7 @@ public class Admin{
     private String fname;
     private String lname;
 
+
     public Admin(long id, String fname, String lname){
         this.id = id;
         this.fname = fname;
