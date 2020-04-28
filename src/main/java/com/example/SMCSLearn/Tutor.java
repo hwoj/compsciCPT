@@ -3,11 +3,22 @@ package com.example.SMCSLearn;
 
 
 public class Tutor {
+<<<<<<< HEAD
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+=======
 
     private Long id;
+>>>>>>> 6dde4b8b23be7f70c82caacfeda8e1a3f6badf09
     private String fName;
     private String lName;
     private int gradYear;
+    private int crit_score;
+    private int eager_score;
+    private int agree_score;
+    private int extro_score;
+    private int tutor_link;
 
     protected Tutor() {};
 
@@ -28,7 +39,7 @@ public class Tutor {
         return lName;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
