@@ -5,6 +5,11 @@ public class User {
     private String email;
     private String fname;
     private String lname;
+
+    private String Personality;
+
+    public User(int id, String fname , String lname, String email){
+
     private int gradyear;
     private int crit_score;
     private int eager_score;
@@ -13,10 +18,14 @@ public class User {
     private int tutor_link;
 
     public User(Long id, String fname , String lname, String gradyear, String email, int crit_score, int eager_score, int agree_score, int extro_score){
+
         this.id = id;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
+
+
+=======
         this.gradyear = gradyear;
         this.crit_score = crit_score;
         this.eager_score = eager_score;
