@@ -9,7 +9,7 @@ public class PersonalityController {
 
     @GetMapping("/personality")
     @CrossOrigin("http://localhost:4200")
-    public Question[] personalityQuestions(){
+    public Question[] personalityQuestions() {
         Question[] questions = new Question[32];
         questions[0] = new Question("Do you trust information after hearing from one source?");
         questions[1] = new Question("Do you get easily upset during conversations with others who contradict your views?");
@@ -49,9 +49,101 @@ public class PersonalityController {
 
         return questions;
     }
+
+
     RestTemplate restTemplate;
-    @PostMapping(path = "/personality",consumes = "application/json")
-    public void receiveAnswers(@RequestBody String[] answers,@RequestParam(value = "id")int id){
-        String[] responses = answers;
+
+    @PostMapping(path = "/personality", consumes = "application/json")
+    public String receiveAnswers(@RequestBody String[] answers, @RequestParam(value = "id") int id) {
+        String[] responses;
+        responses = answers;
+
+        String JP;
+        String EI;
+        String TF;
+        String SI;
+
+        int judging_score;
+        int extro_score;
+        int sensing_score;
+        int thinking_score;
+
+        for (int i = 0; i < 9; i++) {
+
+            if (responses[i] == 0) {
+                judging_score++;
+            } else if (responses[i] == 1) {
+                judging_score += 2;
+            } else if (responses[i] == 3) {
+                judging_score += 3;
+            } else {
+                judging_score += 4;
+            }
+        }
+
+        for (int i = 9; i < 17; i++) {
+            if (responses[i] == 0) {
+                extro_score++;
+            } else if (responses[i] == 1) {
+                extro_score += 2;
+            } else if (responses[i] == 3) {
+                extro_score += 3;
+            } else {
+                extro_score += 4;
+            }
+        }
+        for (
+                int i = 17;
+                i < 25; i++) {
+            if (responses[i] == 0) {
+                thinking_score++;
+            } else if (responses[i] == 1) {
+                thinking_score += 2;
+            } else if (responses[i] == 3) {
+                thinking_score += 3;
+            } else {
+                thinking_score += 4;
+            }
+        }
+        for (
+                int i = 25;
+                i < 33; i++) {
+            if (responses[i] == 0) {
+                sensing_score++;
+            } else if (responses[i] == 1) {
+                sensing_score += 2;
+            } else if (responses[i] == 3) {
+                sensing_score += 3;
+            } else {
+                sensing_score += 4;
+            }
+
+        }
+
+        if (judging_score >= 17) {
+            JP = "J";
+        } else {
+            JP = "P";
+        }
+
+        if (extro_score >= 17) {
+            EI = "E";
+        } else {
+            EI = "I";
+        }
+
+        if (thinking_score >= 17) {
+            TF = "T";
+        } else {
+            TF = "F";
+        }
+
+        if (sensing_score >= 17) {
+            SI = "S";
+        } else {
+            SI = "I";
+        }
+
+        return (JP + EI + TF + SI);
     }
 }
