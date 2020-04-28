@@ -63,18 +63,18 @@ public class PersonalityController {
         String TF;
         String SI;
 
-        int judging_score;
-        int extro_score;
-        int sensing_score;
-        int thinking_score;
+        int judging_score=0;
+        int extro_score =0;
+        int sensing_score=0;
+        int thinking_score=0;
 
         for (int i = 0; i < 9; i++) {
 
-            if (responses[i] == 0) {
+            if (responses[i] == "0") {
                 judging_score++;
-            } else if (responses[i] == 1) {
+            } else if (responses[i] == "1") {
                 judging_score += 2;
-            } else if (responses[i] == 3) {
+            } else if (responses[i] == "2") {
                 judging_score += 3;
             } else {
                 judging_score += 4;
@@ -82,11 +82,11 @@ public class PersonalityController {
         }
 
         for (int i = 9; i < 17; i++) {
-            if (responses[i] == 0) {
+            if (responses[i] == "0") {
                 extro_score++;
-            } else if (responses[i] == 1) {
+            } else if (responses[i] == "1") {
                 extro_score += 2;
-            } else if (responses[i] == 3) {
+            } else if (responses[i] == "2") {
                 extro_score += 3;
             } else {
                 extro_score += 4;
@@ -95,11 +95,11 @@ public class PersonalityController {
         for (
                 int i = 17;
                 i < 25; i++) {
-            if (responses[i] == 0) {
+            if (responses[i] == "0") {
                 thinking_score++;
-            } else if (responses[i] == 1) {
+            } else if (responses[i] == "1") {
                 thinking_score += 2;
-            } else if (responses[i] == 3) {
+            } else if (responses[i] == "2") {
                 thinking_score += 3;
             } else {
                 thinking_score += 4;
@@ -108,11 +108,11 @@ public class PersonalityController {
         for (
                 int i = 25;
                 i < 33; i++) {
-            if (responses[i] == 0) {
+            if (responses[i] == "0") {
                 sensing_score++;
-            } else if (responses[i] == 1) {
+            } else if (responses[i] == "1") {
                 sensing_score += 2;
-            } else if (responses[i] == 3) {
+            } else if (responses[i] == "2") {
                 sensing_score += 3;
             } else {
                 sensing_score += 4;
