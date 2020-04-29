@@ -5,16 +5,26 @@ public class User {
     private String email;
     private String fname;
     private String lname;
-
+    private String key;
+    private int crit_score;
+    private int eager_score;
+    private int agree_score;
+    private int extro_score;
     private String Personality;
+    private String gradyear;
+    private String password;
 
-    public User(int id, String fname , String lname, String email){
-
-    private int gradyear;
-    private String Personality;
     private int tutor_link;
 
-    public User(Long id, String fname , String lname, String gradyear, String email, int crit_score, int eager_score, int agree_score, int extro_score){
+    public User(String fname, String lname, String gradyear, String email, String password, String key){
+        this.fname = fname;
+        this.lname = lname;
+        this.gradyear = gradyear;
+        this.email = email;
+        this.password = password;
+        this.key = key;
+    }
+   /* public User(Long id, String fname , String lname, int gradyear, String email, int crit_score, int eager_score, int agree_score, int extro_score){
 
         this.id = id;
         this.fname = fname;
@@ -22,10 +32,10 @@ public class User {
         this.email = email;
 
 
-=======
+
         this.gradyear = gradyear;
 
-    }
+    }*/
 
     public long getId(){
         return id;
@@ -43,7 +53,7 @@ public class User {
         return lname;
     }
 
-    public int getGradyear() { return gradyear; }
+    public String getGradyear() { return gradyear; }
 
     public int getCrit_score() { return crit_score; }
 
