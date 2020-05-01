@@ -31,6 +31,18 @@ public class Tutor {
         return gradYear;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
     public String getfName() {
         return fName;
     }
