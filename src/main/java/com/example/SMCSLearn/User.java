@@ -6,23 +6,20 @@ public class User {
     private String fname;
     private String lname;
     private String key;
-    private int crit_score;
-    private int eager_score;
-    private int agree_score;
-    private int extro_score;
     private String Personality;
     private String gradyear;
     private String password;
 
     private int tutor_link;
 
-    public User(String fname, String lname, String gradyear, String email, String password, String key){
+    public User(String fname, String lname, String gradyear, String email, String password, String key, String Personaily){
         this.fname = fname;
         this.lname = lname;
         this.gradyear = gradyear;
         this.email = email;
         this.password = password;
         this.key = key;
+        this.Personality = Personality;
     }
    /* public User(Long id, String fname , String lname, int gradyear, String email, int crit_score, int eager_score, int agree_score, int extro_score){
 
