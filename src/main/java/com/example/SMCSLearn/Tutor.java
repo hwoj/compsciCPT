@@ -9,15 +9,22 @@ public class Tutor {
 
     private String fName;
     private String lName;
+    private String password;
+    private String email;
+    private String key;
     private int gradYear;
     private String Personality;
     private int tutor_link;
 
     protected Tutor() {};
 
-    public Tutor(String fName, String lName){
+    public Tutor(String fName, String lName, String email, String password, String key, int gradYear){
         this.fName = fName;
         this.lName = lName;
+        this.email = email;
+        this.password = password;
+        this.gradYear = gradYear;
+        this.key = key;
     }
 
     public int getGradYear() {
@@ -32,9 +39,9 @@ public class Tutor {
         return lName;
     }
 
-    public long getId() {
+   /* public long getId() {
         return id;
-    }
+    }*/
 
     @Override
     public String toString() {

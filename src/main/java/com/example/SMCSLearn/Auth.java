@@ -32,4 +32,26 @@ public class Auth {
         return student;
 
     }
+
+    @PostMapping(path = "/signup/tutor", consumes = "application/json")
+    public Tutor registerTutor(@RequestBody Tutor tutor) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+
+
+        String jsonString = mapper.writeValueAsString(tutor);
+        try {
+            File file = new File(getClass().getResource("/json/tutors.json").getFile());
+            FileOutputStream outputStream = new FileOutputStream(file);
+            byte[] strBytes = jsonString.getBytes();
+            outputStream.write(strBytes);
+            outputStream.close();
+
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+
+        return tutor;
+
+    }
 }
