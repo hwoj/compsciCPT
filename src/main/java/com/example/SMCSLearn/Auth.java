@@ -33,7 +33,7 @@ public class Auth {
 
     }
 
-    @PostMapping(path = "/signup/student", consumes = "application/json")
+    @PostMapping(path = "/signup/tutor", consumes = "application/json")
     public Tutor registerTutor(@RequestBody Tutor tutor) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
 
