@@ -55,11 +55,4 @@ public class User {
 
     public String getGradyear() { return gradyear; }
 
-    public int getCrit_score() { return crit_score; }
-
-    public int getEager_score() { return eager_score; }
-
-    public int getAgree_score() { return agree_score; }
-
-    public int getExtro_score() { return extro_score; }
 }
