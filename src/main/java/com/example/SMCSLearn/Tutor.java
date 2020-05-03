@@ -31,6 +31,18 @@ public class Tutor {
         return gradYear;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
     public String getfName() {
         return fName;
     }
@@ -39,9 +51,16 @@ public class Tutor {
         return lName;
     }
 
-   /* public long getId() {
-        return id;
-    }*/
+   public Long getId() {
+       if (id != null) {
+           return id;
+       }
+       return null;
+   }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     @Override
     public String toString() {

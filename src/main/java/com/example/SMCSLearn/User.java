@@ -1,58 +1,66 @@
 package com.example.SMCSLearn;
 
 public class User {
-    private long id;
-    private String email;
-    private String fname;
-    private String lname;
-    private String key;
-    private int crit_score;
-    private int eager_score;
-    private int agree_score;
-    private int extro_score;
-    private String Personality;
-    private String gradyear;
-    private String password;
+    private Long id;
 
+    private String fName;
+    private String lName;
+    private String password;
+    private String email;
+    private String key;
+
+    private int gradYear;
+
+    private String Personality;
     private int tutor_link;
 
-    public User(String fname, String lname, String gradyear, String email, String password, String key){
-        this.fname = fname;
-        this.lname = lname;
-        this.gradyear = gradyear;
+
+    protected User() {};
+
+    public User(String fName, String lName, String email, String password, String key, int gradYear){
+        this.fName = fName;
+        this.lName = lName;
+
+
         this.email = email;
         this.password = password;
+        this.gradYear = gradYear;
         this.key = key;
-    }
-   /* public User(Long id, String fname , String lname, int gradyear, String email, int crit_score, int eager_score, int agree_score, int extro_score){
-
-        this.id = id;
-        this.fname = fname;
-        this.lname = lname;
-        this.email = email;
-
-
-
-        this.gradyear = gradyear;
-
-    }*/
-
-    public long getId(){
-        return id;
+        this.Personality = Personality;
     }
 
-    public String getFname(){
-        return fname;
+    public int getGradYear() {
+        return gradYear;
     }
 
-    public String getEmail() {
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail(){
         return email;
     }
 
-    public String getLname() {
-        return lname;
+    public String getKey() {
+        return key;
     }
 
-    public String getGradyear() { return gradyear; }
+    public String getfName() {
+        return fName;
+    }
 
+    public String getlName() {
+        return lName;
+    }
+
+    public Long getId() {
+        if (id != null) {
+            return id;
+        }
+        return null;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
