@@ -8,19 +8,25 @@ public class User {
     private String password;
     private String email;
     private String key;
+
     private int gradYear;
+
     private String Personality;
     private int tutor_link;
+
 
     protected User() {};
 
     public User(String fName, String lName, String email, String password, String key, int gradYear){
         this.fName = fName;
         this.lName = lName;
+
+
         this.email = email;
         this.password = password;
         this.gradYear = gradYear;
         this.key = key;
+        this.Personality = Personality;
     }
 
     public int getGradYear() {
