@@ -23,9 +23,6 @@ public class User {
         this.fname = fname;
         this.lname = lname;
         this.email = email;
-
-
-=======
         this.gradyear = gradyear;
         this.crit_score = crit_score;
         this.eager_score = eager_score;
