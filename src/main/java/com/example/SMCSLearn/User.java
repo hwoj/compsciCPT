@@ -8,7 +8,7 @@ public class User {
 
     private String Personality;
 
-    public User(int id, String fname , String lname, String email){
+    public User(long id, String fname , String lname, String email){
 
     private int gradyear;
     private int crit_score;
@@ -17,7 +17,7 @@ public class User {
     private int extro_score;
     private int tutor_link;
 
-    public User(Long id, String fname , String lname, String gradyear, String email, int crit_score, int eager_score, int agree_score, int extro_score){
+    public User(long id, String fname , String lname, String gradyear, String email, int crit_score, int eager_score, int agree_score, int extro_score){
 
         this.id = id;
         this.fname = fname;
