@@ -3,32 +3,44 @@ package com.example.SMCSLearn;
 
 
 public class Tutor {
-<<<<<<< HEAD
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-=======
+
 
     private Long id;
->>>>>>> 6dde4b8b23be7f70c82caacfeda8e1a3f6badf09
+
     private String fName;
     private String lName;
+    private String password;
+    private String email;
+    private String key;
     private int gradYear;
-    private int crit_score;
-    private int eager_score;
-    private int agree_score;
-    private int extro_score;
+    private String Personality;
     private int tutor_link;
 
     protected Tutor() {};
 
-    public Tutor(String fName, String lName){
+    public Tutor(String fName, String lName, String email, String password, String key, int gradYear){
         this.fName = fName;
         this.lName = lName;
+        this.email = email;
+        this.password = password;
+        this.gradYear = gradYear;
+        this.key = key;
     }
 
     public int getGradYear() {
         return gradYear;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public String getKey() {
+        return key;
     }
 
     public String getfName() {
@@ -39,8 +51,15 @@ public class Tutor {
         return lName;
     }
 
-    public long getId() {
-        return id;
+   public Long getId() {
+       if (id != null) {
+           return id;
+       }
+       return null;
+   }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override

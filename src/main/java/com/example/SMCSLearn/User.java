@@ -1,22 +1,24 @@
 package com.example.SMCSLearn;
 
 public class User {
-    private long id;
+    private Long id;
+
+    private String fName;
+    private String lName;
+    private String password;
     private String email;
-    private String fname;
-    private String lname;
+    private String key;
+
+<<<<<<< HEAD
+    public User(long id, String fname , String lname, String email){
+=======
+    private int gradYear;
+>>>>>>> 9d2d1c36be95179386b4a7020b05f8c63cb991b2
 
     private String Personality;
-
-    public User(long id, String fname , String lname, String email){
-
-    private int gradyear;
-    private int crit_score;
-    private int eager_score;
-    private int agree_score;
-    private int extro_score;
     private int tutor_link;
 
+<<<<<<< HEAD
     public User(long id, String fname , String lname, String gradyear, String email, int crit_score, int eager_score, int agree_score, int extro_score){
 
         this.id = id;
@@ -28,31 +30,55 @@ public class User {
         this.eager_score = eager_score;
         this.agree_score = agree_score;
         this.extro_score = extro_score;
+=======
+
+    protected User() {};
+
+    public User(String fName, String lName, String email, String password, String key, int gradYear){
+        this.fName = fName;
+        this.lName = lName;
+
+
+        this.email = email;
+        this.password = password;
+        this.gradYear = gradYear;
+        this.key = key;
+        this.Personality = Personality;
+>>>>>>> 9d2d1c36be95179386b4a7020b05f8c63cb991b2
     }
 
-    public long getId(){
-        return id;
+    public int getGradYear() {
+        return gradYear;
     }
 
-    public String getFname(){
-        return fname;
+    public String getPassword() {
+        return password;
     }
 
-    public String getEmail() {
+    public String getEmail(){
         return email;
     }
 
-    public String getLname() {
-        return lname;
+    public String getKey() {
+        return key;
     }
 
-    public int getGradyear() { return gradyear; }
+    public String getfName() {
+        return fName;
+    }
 
-    public int getCrit_score() { return crit_score; }
+    public String getlName() {
+        return lName;
+    }
 
-    public int getEager_score() { return eager_score; }
+    public Long getId() {
+        if (id != null) {
+            return id;
+        }
+        return null;
+    }
 
-    public int getAgree_score() { return agree_score; }
-
-    public int getExtro_score() { return extro_score; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
