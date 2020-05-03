@@ -16,11 +16,11 @@ public class UserController {
 
 
     @GetMapping("/json")
-    public Tutor jsonAttempt() throws IOException {
+    public String[] jsonAttempt() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         File file = new File(getClass().getResource("/json/tutors.json").getFile());
 
-        Tutor tut = mapper.readValue(file, Tutor.class);
-        return tut;
+        String[] arr = mapper.readValue(file, String[].class);
+        return arr;
     }
 }

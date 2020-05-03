@@ -51,9 +51,16 @@ public class Tutor {
         return lName;
     }
 
-   /* public long getId() {
-        return id;
-    }*/
+   public Long getId() {
+       if (id != null) {
+           return id;
+       }
+       return null;
+   }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     @Override
     public String toString() {
