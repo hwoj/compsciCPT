@@ -5,7 +5,7 @@ package com.example.SMCSLearn;
 public class Tutor {
 
 
-    private Long id;
+    private int id;
 
     private String fName;
     private String lName;
@@ -18,13 +18,14 @@ public class Tutor {
 
     protected Tutor() {};
 
-    public Tutor(String fName, String lName, String email, String password, String key, int gradYear){
+    public Tutor(String fName, String lName, String email, String password, String key, int gradYear, String Personality){
         this.fName = fName;
         this.lName = lName;
         this.email = email;
         this.password = password;
         this.gradYear = gradYear;
         this.key = key;
+        this.Personality = Personality;
     }
 
     public int getGradYear() {
@@ -47,18 +48,22 @@ public class Tutor {
         return fName;
     }
 
+    public String getPersonality(){
+        return Personality;
+    }
+
     public String getlName() {
         return lName;
     }
 
-   public Long getId() {
-       if (id != null) {
+   public int getId() {
+       if (id >= 0) {
            return id;
        }
-       return null;
+       return -1;
    }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -1,7 +1,7 @@
 package com.example.SMCSLearn;
 
 public class User {
-    private Long id;
+    private int id;
 
     private String fName;
     private String lName;
@@ -15,9 +15,9 @@ public class User {
     private int tutor_link;
 
 
-    protected User() {};
+    protected User() {}
 
-    public User(String fName, String lName, String email, String password, String key, int gradYear){
+    public User(String fName, String lName, String email, String password, String key, int gradYear, String Personality){
         this.fName = fName;
         this.lName = lName;
 
@@ -53,14 +53,16 @@ public class User {
         return lName;
     }
 
-    public Long getId() {
-        if (id != null) {
+    public String getPersonality() { return Personality; }
+
+    public int getId() {
+        if ((id >= 0)) {
             return id;
         }
-        return null;
+        return -1;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 }
