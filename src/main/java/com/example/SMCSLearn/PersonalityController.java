@@ -57,7 +57,7 @@ public class PersonalityController {
 
 
     RestTemplate restTemplate;
-
+/*
     @PostMapping(path = "/personality", consumes = "application/json")
     public String receiveAnswers(@RequestBody String[] answers, @RequestParam(value = "id") int id) {
         String[] responses;
@@ -246,6 +246,8 @@ public class PersonalityController {
 
         return(great,good,bad);
     }
+    */
+
 
 
 }
