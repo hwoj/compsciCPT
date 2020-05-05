@@ -23,4 +23,6 @@ public class UserController {
         User[] arr = mapper.readValue(file, User[].class);
         return arr;
     }
+
+
 }

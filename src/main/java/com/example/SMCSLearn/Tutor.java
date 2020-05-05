@@ -1,6 +1,7 @@
 package com.example.SMCSLearn;
 
 
+import javax.validation.constraints.Null;
 
 public class Tutor {
 
@@ -18,13 +19,14 @@ public class Tutor {
 
     protected Tutor() {};
 
-    public Tutor(String fName, String lName, String email, String password, String key, int gradYear){
+    public Tutor(String fName, String lName, String email, String password, String key, int gradYear, String Personality){
         this.fName = fName;
         this.lName = lName;
         this.email = email;
         this.password = password;
         this.gradYear = gradYear;
         this.key = key;
+        this.Personality = Personality;
     }
 
     public int getGradYear() {
@@ -45,6 +47,10 @@ public class Tutor {
 
     public String getfName() {
         return fName;
+    }
+
+    public String getPersonality(){
+        return Personality;
     }
 
     public String getlName() {
