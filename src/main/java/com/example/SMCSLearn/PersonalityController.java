@@ -173,82 +173,84 @@ public class PersonalityController {
         return arr;
     }
 
-    public int[][] personalitycompare() throws IOException {
+    public Long[][] personalitycompare() throws IOException {
 
         User[] Student = jsonAttemptStu();
         User[] Tutor = jsonAttemptTut();
 
         User Student_Type = Student[0];
         //User[] Tutor_Type = Tutor;
-        int[] great = new int[Tutor.length];
-        int[] good = new int[Tutor.length];
-        int[] bad = new int[Tutor.length];
+        Long[] great = new Long[Tutor.length];
+        Long[] good = new Long[Tutor.length];
+        Long[] bad = new Long[Tutor.length];
 
         for (User Tutor_Type : Tutor) {
 
+            int i = Tutor_Type.getId().intValue();
 
-            if (Student_Type.equals("ENTJ")) {
+
+            if (Student_Type.getPersonality().equals("ENTJ")) {
                 //Best types for a relationship: ESTJ, ISTP, ENTJ, ENFJ, INTJ
                 if (Tutor_Type.getPersonality().equals("ESTJ")) {
-                    great[Tutor_Type.getId()] = Tutor_Type.getId();
+                    great[i] = Tutor_Type.getId();
                 }
                 if (Tutor_Type.getPersonality().equals("ISTP")) {
-                    great[Tutor_Type.getId()] = Tutor_Type.getId();
+                    great[i] = Tutor_Type.getId();
                 }
                 if (Tutor_Type.getPersonality().equals("ENTJ")) {
-                    great[Tutor_Type.getId()] = Tutor_Type.getId();
+                    great[i] = Tutor_Type.getId();
                 }
                 if (Tutor_Type.getPersonality().equals("INTJ")) {
-                    great[Tutor_Type.getId()] = Tutor_Type.getId();
+                    great[i] = Tutor_Type.getId();
                 }
                 //Possible types for a relationship: ISTJ, ESTP, ENTP, INTP, INFJ, ENFP
                 if (Tutor_Type.getPersonality().equals("ISTJ")) {
-                    good[Tutor_Type.getId()] = Tutor_Type.getId();
+                    good[i] = Tutor_Type.getId();
                 }
                 if (Tutor_Type.getPersonality().equals("ESTP")) {
-                    good[Tutor_Type.getId()] = Tutor_Type.getId();
+                    good[i] = Tutor_Type.getId();
                 }
                 if (Tutor_Type.getPersonality().equals("ENTP")) {
-                    good[Tutor_Type.getId()] = Tutor_Type.getId();
+                    good[i] = Tutor_Type.getId();
                 }
                 if (Tutor_Type.getPersonality().equals("INTP")) {
-                    good[Tutor_Type.getId()] = Tutor_Type.getId();
+                    good[i] = Tutor_Type.getId();
                 }
                 if (Tutor_Type.getPersonality().equals("INFJ")) {
-                    good[Tutor_Type.getId()] = Tutor_Type.getId();
+                    good[i] = Tutor_Type.getId();
                 }
                 if (Tutor_Type.getPersonality().equals("ENFP")) {
-                    good[Tutor_Type.getId()] = Tutor_Type.getId();
+                    good[i] = Tutor_Type.getId();
                 }
                 //Least likely types for a relationship: ESFJ, ISFJ, ESFP, ISFP, INFP
                 if (Tutor_Type.equals("ESFJ")) {
-                    bad[Tutor_Type.getId()] = Tutor_Type.getId();
+                    bad[i] = Tutor_Type.getId();
                 }
                 if (Tutor_Type.equals("ISFJ")) {
-                    bad[Tutor_Type.getId()] = Tutor_Type.getId();
+                    bad[i] = Tutor_Type.getId();
                 }
                 if (Tutor_Type.equals("ESFP")) {
-                    bad[Tutor_Type.getId()] = Tutor_Type.getId();
+                    bad[i] = Tutor_Type.getId();
                 }
                 if (Tutor_Type.equals("ISFP")) {
-                    bad[Tutor_Type.getId()] = Tutor_Type.getId();
+                    bad[i] = Tutor_Type.getId();
                 }
                 if (Tutor_Type.equals("INFP")) {
-                    bad[Tutor_Type.getId()] = Tutor_Type.getId();
+                    bad[i] = Tutor_Type.getId();
                 }
             } else if (Student_Type.equals("ENTP")) {
 
                 //Best types for a relationship: ENTP, INTP, INFJ
                 if (Tutor_Type.getPersonality().equals("ENTP") || Tutor_Type.getPersonality().equals("INTP") || Tutor_Type.getPersonality().equals("INFJ")) {
-                    great[Tutor_Type.getId()] = Tutor_Type.getId();
+                    great[i] = Tutor_Type.getId();
                 }
                 //Possible types for a relationship: ESTJ, ISTJ, ESTP, ESFP, ENTJ, ENFP, INFP, ENFJ
                 if (Tutor_Type.getPersonality().equals(("ESTJ"))||Tutor_Type.getPersonality().equals(("ISTJ"))||Tutor_Type.getPersonality().equals(("ESTP"))||Tutor_Type.getPersonality().equals(("ESFJ"))||Tutor_Type.getPersonality().equals(("ENTJ"))||Tutor_Type.getPersonality().equals(("ENFP"))||Tutor_Type.getPersonality().equals(("INFP"))||Tutor_Type.getPersonality().equals(("ENFJ"))){
-                    good[Tutor_Type.getId()] = Tutor_Type.getId();
+                    good[i] = Tutor_Type.getId();
                 }
                 //Least likely types for a relationship: ESFJ, ISFJ, ISTP, ISFP, INTJ
                 if (Tutor_Type.getPersonality().equals(("ESFJ"))||Tutor_Type.getPersonality().equals(("ISFJ"))||Tutor_Type.getPersonality().equals(("ISTP"))||Tutor_Type.getPersonality().equals(("ISFP"))||Tutor_Type.getPersonality().equals(("INTJ"))){
-                    bad[Tutor_Type.getId()] = Tutor_Type.getId();
+                    bad[i] = Tutor_Type.getId();
                 }
             } else if (Student_Type.equals("INTJ")) {
                 //Best types for a relationship: ESTJ, INTJ, ISTP, ENTJ
@@ -313,7 +315,7 @@ public class PersonalityController {
 
         }
 
-        return new int[][]{great, good, bad};
+        return new Long[][]{great, good, bad};
     }
 
 
