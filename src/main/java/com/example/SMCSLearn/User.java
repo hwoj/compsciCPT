@@ -11,13 +11,13 @@ public class User {
 
     private int gradYear;
 
-    private String Personality;
+    private String personality;
     private int tutor_link;
 
 
     protected User() {}
 
-    public User(String fName, String lName, String email, String password, String key, int gradYear, String Personality){
+    public User(String fName, String lName, String email, String password, String key, int gradYear){
         this.fName = fName;
         this.lName = lName;
 
@@ -26,7 +26,7 @@ public class User {
         this.password = password;
         this.gradYear = gradYear;
         this.key = key;
-        this.Personality = Personality;
+
     }
 
     public int getGradYear() {
@@ -53,7 +53,11 @@ public class User {
         return lName;
     }
 
-    public String getPersonality() { return Personality; }
+    public void setPersonality(String personality) {
+        this.personality = personality;
+    }
+
+    public String getPersonality() { return personality; }
 
     public Long getId() {
         if (id != null) {

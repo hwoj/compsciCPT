@@ -27,6 +27,7 @@ public class Auth {
                 stus[i] = stu[i];
             }
             student.setId((long) leng);
+            student.setPersonality("");
             stus[leng] = student;
             s = student;
             students = stus;
@@ -61,6 +62,7 @@ public class Auth {
                 tutors[i] = tut[i];
             }
             tutor.setId((long) leng);
+            tutor.setPersonality("");
             t = tutor;
             tutors[leng] = tutor;
 
@@ -86,6 +88,25 @@ public class Auth {
         File file = new File(getClass().getResource("/json/students.json").getFile());
         User user = null;
         User[] arr = mapper.readValue(file, User[].class);
+
+        for(int i = 0; i < arr.length; i++){
+            if (arr[i].getEmail().equals(info.getEmail()) && arr[i].getPassword().equals(info.getPassword())){
+                return arr[i];
+            }
+        }
+
+        return null;
+
+
+    }
+
+    @PostMapping(path = "login/tutor",consumes = "application/json")
+    public Tutor loginTutor(@RequestBody LoginInfo info) throws IOException {
+
+        ObjectMapper mapper = new ObjectMapper();
+        File file = new File(getClass().getResource("/json/tutors.json").getFile());
+        Tutor tutor = null;
+        Tutor[] arr = mapper.readValue(file, Tutor[].class);
 
         for(int i = 0; i < arr.length; i++){
             if (arr[i].getEmail().equals(info.getEmail()) && arr[i].getPassword().equals(info.getPassword())){
