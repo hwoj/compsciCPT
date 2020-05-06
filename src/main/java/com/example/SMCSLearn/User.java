@@ -29,9 +29,9 @@ public class User {
         this.agree_score = agree_score;
         this.extro_score = extro_score;
 
-    protected User() {};
+    protected User() {}
 
-    public User(String fName, String lName, String email, String password, String key, int gradYear){
+    public User(String fName, String lName, String email, String password, String key, int gradYear, String Personality){
         this.fName = fName;
         this.lName = lName;
 
@@ -66,6 +66,8 @@ public class User {
     public String getlName() {
         return lName;
     }
+
+    public String getPersonality() { return Personality; }
 
     public Long getId() {
         if (id != null) {
