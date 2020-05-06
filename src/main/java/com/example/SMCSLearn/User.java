@@ -13,8 +13,10 @@ public class User {
 
     private int gradYear;
 
+    private String personality;
 
     private String Personality;
+
     private int tutor_link;
 
     public User(long id, String fname , String lname, String gradyear, String email, int crit_score, int eager_score, int agree_score, int extro_score){
@@ -31,7 +33,7 @@ public class User {
 
     protected User() {}
 
-    public User(String fName, String lName, String email, String password, String key, int gradYear, String Personality){
+    public User(String fName, String lName, String email, String password, String key, int gradYear){
         this.fName = fName;
         this.lName = lName;
 
@@ -40,7 +42,7 @@ public class User {
         this.password = password;
         this.gradYear = gradYear;
         this.key = key;
-        this.Personality = Personality;
+
     }
 
     public int getGradYear() {
@@ -67,7 +69,11 @@ public class User {
         return lName;
     }
 
-    public String getPersonality() { return Personality; }
+    public void setPersonality(String personality) {
+        this.personality = personality;
+    }
+
+    public String getPersonality() { return personality; }
 
     public Long getId() {
         if (id != null) {

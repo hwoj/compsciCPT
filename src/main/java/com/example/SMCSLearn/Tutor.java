@@ -14,19 +14,18 @@ public class Tutor {
     private String email;
     private String key;
     private int gradYear;
-    private String Personality;
+    private String personality;
     private int tutor_link;
 
     protected Tutor() {};
 
-    public Tutor(String fName, String lName, String email, String password, String key, int gradYear, String Personality){
+    public Tutor(String fName, String lName, String email, String password, String key, int gradYear){
         this.fName = fName;
         this.lName = lName;
         this.email = email;
         this.password = password;
         this.gradYear = gradYear;
         this.key = key;
-        this.Personality = Personality;
     }
 
     public int getGradYear() {
@@ -50,7 +49,10 @@ public class Tutor {
     }
 
     public String getPersonality(){
-        return Personality;
+        if (! personality.equals(null)) {
+            return personality;
+        }
+        return null;
     }
 
     public String getlName() {
@@ -66,6 +68,10 @@ public class Tutor {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setPersonality(String personality) {
+        this.personality = personality;
     }
 
     @Override
