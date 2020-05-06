@@ -2,19 +2,39 @@ package com.example.SMCSLearn;
 
 public class Admin{
     private long id;
-    private String fname;
-    private String lname;
+    private String fName;
+    private String lName;
+    private String email;
+    private String password;
 
+    protected Admin() {};
+    public Admin(String fName, String lName, String email, String password){
+        this.fName = fName;
+        this.lName = lName;
+        this.email = email;
+        this.password = password;
 
-    public Admin(long id, String fname, String lname){
-        this.id = id;
-        this.fname = fname;
-        this.lname = lname;
     }
 
     public long getId() { return id; }
 
-    public String getFname() { return fname; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getLname() { return lname; }
+    public String getfName() { return fName; }
+
+    public String getlName() {
+        return lName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+
 }
