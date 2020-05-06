@@ -16,11 +16,13 @@ public class UserController {
 
 
     @GetMapping("/json")
-    public String[] jsonAttempt() throws IOException {
+    public User[] jsonAttempt() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        File file = new File(getClass().getResource("/json/tutors.json").getFile());
+        File file = new File(getClass().getResource("/json/students.json").getFile());
 
-        String[] arr = mapper.readValue(file, String[].class);
+        User[] arr = mapper.readValue(file, User[].class);
         return arr;
     }
+
+
 }

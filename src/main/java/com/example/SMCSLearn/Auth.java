@@ -12,11 +12,11 @@ import java.io.*;
 @RestController
 public class Auth {
     @PostMapping(path = "/signup/student", consumes = "application/json")
-    public User[] registerStudent(@RequestBody User student) throws JsonProcessingException {
+    public User registerStudent(@RequestBody User student) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
 
         User[] students = new User[]{};
-
+        User s = new User();
         try {
             File file = new File(getClass().getResource("/json/students.json").getFile());
 
@@ -28,6 +28,7 @@ public class Auth {
             }
             student.setId((long) leng);
             stus[leng] = student;
+            s = student;
             students = stus;
             FileOutputStream outputStream = new FileOutputStream(file);
             String jsonString = mapper.writeValueAsString(stus);
@@ -41,15 +42,15 @@ public class Auth {
         }
 
 
-        return students;
+        return s;
 
     }
 
     @PostMapping(path = "/signup/tutor", consumes = "application/json")
-    public Tutor[] registerTutor(@RequestBody Tutor tutor) throws JsonProcessingException {
+    public Tutor registerTutor(@RequestBody Tutor tutor) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
 
-
+        Tutor t = new Tutor();
         Tutor[] tuts = new Tutor[]{};
         try {
             File file = new File(getClass().getResource("/json/tutors.json").getFile());
@@ -60,8 +61,9 @@ public class Auth {
                 tutors[i] = tut[i];
             }
             tutor.setId((long) leng);
+            t = tutor;
             tutors[leng] = tutor;
-            tuts = tutors;
+
             FileOutputStream outputStream = new FileOutputStream(file);
             String jsonString = mapper.writeValueAsString(tutors);
             byte[] strBytes = jsonString.getBytes();
@@ -72,8 +74,27 @@ public class Auth {
             e.printStackTrace();
         }
 
+        return t;
 
-        return tuts;
+
+    }
+
+    @PostMapping(path = "login/student",consumes = "application/json")
+    public User loginStudent(@RequestBody LoginInfo info) throws IOException {
+
+        ObjectMapper mapper = new ObjectMapper();
+        File file = new File(getClass().getResource("/json/students.json").getFile());
+        User user = null;
+        User[] arr = mapper.readValue(file, User[].class);
+
+        for(int i = 0; i < arr.length; i++){
+            if (arr[i].getEmail().equals(info.getEmail()) && arr[i].getPassword().equals(info.getPassword())){
+                return arr[i];
+            }
+        }
+
+        return null;
+
 
     }
 }
