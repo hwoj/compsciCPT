@@ -9,16 +9,14 @@ public class User {
     private String email;
     private String key;
 
-<<<<<<< HEAD
     public User(long id, String fname , String lname, String email){
-=======
+
     private int gradYear;
->>>>>>> 9d2d1c36be95179386b4a7020b05f8c63cb991b2
+
 
     private String Personality;
     private int tutor_link;
 
-<<<<<<< HEAD
     public User(long id, String fname , String lname, String gradyear, String email, int crit_score, int eager_score, int agree_score, int extro_score){
 
         this.id = id;
@@ -30,7 +28,6 @@ public class User {
         this.eager_score = eager_score;
         this.agree_score = agree_score;
         this.extro_score = extro_score;
-=======
 
     protected User() {};
 
@@ -44,7 +41,6 @@ public class User {
         this.gradYear = gradYear;
         this.key = key;
         this.Personality = Personality;
->>>>>>> 9d2d1c36be95179386b4a7020b05f8c63cb991b2
     }
 
     public int getGradYear() {
