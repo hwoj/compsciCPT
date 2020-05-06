@@ -9,11 +9,27 @@ public class User {
     private String email;
     private String key;
 
+    public User(long id, String fname , String lname, String email){
+
     private int gradYear;
 
     private String personality;
+
+    private String Personality;
+
     private int tutor_link;
 
+    public User(long id, String fname , String lname, String gradyear, String email, int crit_score, int eager_score, int agree_score, int extro_score){
+
+        this.id = id;
+        this.fname = fname;
+        this.lname = lname;
+        this.email = email;
+        this.gradyear = gradyear;
+        this.crit_score = crit_score;
+        this.eager_score = eager_score;
+        this.agree_score = agree_score;
+        this.extro_score = extro_score;
 
     protected User() {}
 
