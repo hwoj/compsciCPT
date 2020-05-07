@@ -65,8 +65,8 @@ public class PersonalityController {
         return ous;
     }
 
-    @PostMapping(path = "/personality-test", consumes = "application/json")
-    public String receiveAnswers(@RequestBody String[] answers, @RequestParam(value = "id") int id) {
+    @PostMapping(path = "/personality-test/{userType}/{userEmail}", consumes = "application/json")
+    public String receiveAnswers(@RequestBody String[] answers, @PathVariable(value="userType") String userType, @PathVariable(value="userEmail") String userEmail,@RequestParam(value = "id") int id) {
         String[] responses;
         responses = answers;
 
