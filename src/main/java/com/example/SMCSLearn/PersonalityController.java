@@ -3,7 +3,7 @@ package com.example.SMCSLearn;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -60,9 +60,12 @@ public class PersonalityController {
     }
 
 
-    RestTemplate restTemplate;
+    @PostMapping(path = "/personality-testing", consumes = "application/json")
+    public String bad(@RequestBody String ous){
+        return ous;
+    }
 
-    @PostMapping(path = "/personality", consumes = "application/json")
+    @PostMapping(path = "/personality-test", consumes = "application/json")
     public String receiveAnswers(@RequestBody String[] answers, @RequestParam(value = "id") int id) {
         String[] responses;
         responses = answers;
@@ -116,7 +119,7 @@ public class PersonalityController {
         }
         for (
                 int i = 25;
-                i < 33; i++) {
+                i < 32; i++) {
             if (responses[i].equals("0")) {
                 sensing_score++;
             } else if (responses[i].equals("1")) {
@@ -157,7 +160,7 @@ public class PersonalityController {
     }
 
 
-    @GetMapping("/json")
+    @GetMapping("/json-stu")
     public User[] jsonAttemptStu() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         File file = new File(getClass().getResource("/json/students.json").getFile());
