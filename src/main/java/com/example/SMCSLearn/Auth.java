@@ -11,6 +11,10 @@ import java.io.*;
 
 @RestController
 public class Auth {
+
+    //Pre: Student's sign up info from front end
+    //Post: Adds student's info to json file
+    //Function: Writes the student's info to a json file to store thier info
     @PostMapping(path = "/signup/student", consumes = "application/json")
     public User registerStudent(@RequestBody User student) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
@@ -42,11 +46,13 @@ public class Auth {
             e.printStackTrace();
         }
 
-
         return s;
 
     }
 
+    //Pre: Tutor's sign up info from front end
+    //Post: Adds Tutor's info to json file
+    //Function: Writes the tutor's info to a json file to store thier info
     @PostMapping(path = "/signup/tutor", consumes = "application/json")
     public Tutor registerTutor(@RequestBody Tutor tutor) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
@@ -81,6 +87,9 @@ public class Auth {
 
     }
 
+    //Pre: The json file containing all of the registered student's info and student's entered info in front end
+    //Post: Returns if the entered student's info is registered
+    //Function: To determine if the info entered in the sign up form on front end has been previously registered
     @PostMapping(path = "login/student",consumes = "application/json")
     public User loginStudent(@RequestBody LoginInfo info) throws IOException {
 
@@ -100,6 +109,9 @@ public class Auth {
 
     }
 
+    //Pre: The json file containing all of the registered tutor's info and student's entered info in front end
+    //Post: Returns if the entered tutor's info is registered
+    //Function: To determine if the info entered in the sign up form on front end has been previously registered
     @PostMapping(path = "login/tutor",consumes = "application/json")
     public Tutor loginTutor(@RequestBody LoginInfo info) throws IOException {
 
