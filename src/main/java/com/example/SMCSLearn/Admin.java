@@ -9,20 +9,15 @@ public class Admin{
     private String password;
 
     protected Admin() {};
-    public Admin(String fName, String lName, String email, String password){
-        this.fName = fName;
-        this.lName = lName;
-        this.email = email;
-        this.password = password;
 
     //Pre: Variables (id, fname, and last name) from front end
     //Post: Returns variables (id, fname, and last name) for backend use
     //Function: Takes information regarding the admin and adds it to the backend
-    public Admin(long id, String fname, String lname){
-        this.id = id;
-        this.fname = fname;
-        this.lname = lname;
-
+    public Admin(String fName, String lName, String email, String password) {
+        this.fName = fName;
+        this.lName = lName;
+        this.email = email;
+        this.password = password;
     }
 
     //Pre: Admin's id
@@ -30,31 +25,15 @@ public class Admin{
     //Function: To make admin's id callable throughout backend
     public long getId() { return id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    //Pre: Admin's email
+    //Post: Returns admin's email
+    //Function: To make admin's email callable throughout backend
+    public String getEmail() { return email; }
 
-    public String getfName() { return fName; }
-
-    public String getlName() {
-        return lName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setfName(String fName) {this.fName = fName;}
-
-    public void setlName(String lName) {this.lName = lName;}
-
-    public void setEmail(String email) {this.email = email;}
-
-    public void setPassword(String password) {this.password = password;}
+    //Pre: Admin's password
+    //Post: Returns admin's password
+    //Function: To make admin's password callable throughout backend
+    public String getPassword() { return password; }
 
     //Pre: Admin's first name (fname)
     //Post: Returns admin's first name (fname)
@@ -65,5 +44,6 @@ public class Admin{
     //Post: Returns admin's last name (lname)
     //Function: To make admin's last name (lname) callable throughout backend
     public String getLname() { return lname; }
+
 
 }
