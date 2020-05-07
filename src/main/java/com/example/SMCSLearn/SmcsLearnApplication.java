@@ -1,3 +1,5 @@
+//SMCS Learn
+//Written by: Thomas Gliona, John Balawejder, Henry Wojnicki, and Peter Chuchra
 package com.example.SMCSLearn;
 
 import org.springframework.boot.SpringApplication;
