@@ -9,7 +9,7 @@ public class User {
     private String email;
     private String key;
 
-    public User(long id, String fname , String lname, String email){
+
 
     private int gradYear;
 
@@ -19,17 +19,7 @@ public class User {
 
     private int tutor_link;
 
-    public User(long id, String fname , String lname, String gradyear, String email, int crit_score, int eager_score, int agree_score, int extro_score){
 
-        this.id = id;
-        this.fname = fname;
-        this.lname = lname;
-        this.email = email;
-        this.gradyear = gradyear;
-        this.crit_score = crit_score;
-        this.eager_score = eager_score;
-        this.agree_score = agree_score;
-        this.extro_score = extro_score;
 
     protected User() {}
 
@@ -84,5 +74,25 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setfName(String fName){
+        this.fName = fName;
+    }
+
+    public void setlName(String lName){
+        this.lName = lName;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+
+    public void setPassword(String password){
+        this.password = password;
+    }
+
+    public void setGradYear(int gradYear){
+        this.gradYear = gradYear;
     }
 }

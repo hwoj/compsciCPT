@@ -109,16 +109,22 @@ public class Auth {
 
     }
 
+
+
+    @PostMapping(path = "login/guidance",consumes = "application/json")
+    public Admin loginGuidance(@RequestBody LoginInfo info) throws IOException {
+
     //Pre: The json file containing all of the registered tutor's info and student's entered info in front end
     //Post: Returns if the entered tutor's info is registered
     //Function: To determine if the info entered in the sign up form on front end has been previously registered
     @PostMapping(path = "login/tutor",consumes = "application/json")
     public Tutor loginTutor(@RequestBody LoginInfo info) throws IOException {
 
+
         ObjectMapper mapper = new ObjectMapper();
-        File file = new File(getClass().getResource("/json/tutors.json").getFile());
-        Tutor tutor = null;
-        Tutor[] arr = mapper.readValue(file, Tutor[].class);
+        File file = new File(getClass().getResource("/json/guidance.json").getFile());
+        Admin guidance = null;
+        Admin[] arr = mapper.readValue(file, Admin[].class);
 
         for(int i = 0; i < arr.length; i++){
             if (arr[i].getEmail().equals(info.getEmail()) && arr[i].getPassword().equals(info.getPassword())){
