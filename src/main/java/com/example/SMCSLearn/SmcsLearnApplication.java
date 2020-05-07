@@ -1,3 +1,5 @@
+//SMCS Learn
+//Written by: Thomas Gliona, John Balawejder, Henry Wojnicki, and Peter Chuchra
 package com.example.SMCSLearn;
 
 import org.springframework.boot.SpringApplication;
@@ -9,10 +11,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication
 public class SmcsLearnApplication {
 
+	//run the application
 	public static void main(String[] args) {
 		SpringApplication.run(SmcsLearnApplication.class, args);
 	}
 
+	//configure how application is run
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
