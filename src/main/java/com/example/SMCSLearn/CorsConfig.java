@@ -8,6 +8,10 @@ import org.springframework.web.filter.CorsFilter;
 
 @Configuration
 public class CorsConfig {
+
+    //Pre: None
+    //Post: Returns which HTTP methods are used
+    //Function: Allows communication between front end and back end
     @Bean
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
