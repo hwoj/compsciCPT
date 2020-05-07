@@ -100,6 +100,25 @@ public class Auth {
 
     }
 
+    @PostMapping(path = "login/tutor",consumes = "application/json")
+    public Tutor loginTutor(@RequestBody LoginInfo info) throws IOException {
+
+        ObjectMapper mapper = new ObjectMapper();
+        File file = new File(getClass().getResource("/json/tutors.json").getFile());
+        Tutor tut = null;
+        Tutor[] arr = mapper.readValue(file, Tutor[].class);
+
+        for(int i = 0; i < arr.length; i++){
+            if (arr[i].getEmail().equals(info.getEmail()) && arr[i].getPassword().equals(info.getPassword())){
+                return arr[i];
+            }
+        }
+
+        return null;
+
+
+    }
+
 
 
     @PostMapping(path = "login/guidance",consumes = "application/json")
