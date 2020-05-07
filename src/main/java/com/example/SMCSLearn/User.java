@@ -75,4 +75,24 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public void setfName(String fName){
+        this.fName = fName;
+    }
+
+    public void setlName(String lName){
+        this.lName = lName;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+
+    public void setPassword(String password){
+        this.password = password;
+    }
+
+    public void setGradYear(int gradYear){
+        this.gradYear = gradYear;
+    }
 }
