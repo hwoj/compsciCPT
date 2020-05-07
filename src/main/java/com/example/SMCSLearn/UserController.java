@@ -13,8 +13,7 @@ import java.io.InputStream;
 @RestController
 public class UserController {
 
-
-
+    //read the users json
     @GetMapping("/json")
     public User[] jsonAttempt() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
@@ -23,6 +22,4 @@ public class UserController {
         User[] arr = mapper.readValue(file, User[].class);
         return arr;
     }
-
-
 }
