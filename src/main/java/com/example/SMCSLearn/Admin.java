@@ -36,5 +36,12 @@ public class Admin{
         return password;
     }
 
+    public void setfName(String fName) {this.fName = fName;}
+
+    public void setlName(String lName) {this.lName = lName;}
+
+    public void setEmail(String email) {this.email = email;}
+
+    public void setPassword(String password) {this.password = password;}
 
 }

@@ -74,6 +74,27 @@ public class Tutor {
         this.personality = personality;
     }
 
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public void setfName(String fName){
+        this.fName = fName;
+    }
+
+    public void setlName(String lName){
+        this.lName = lName;
+    }
+
+    public void setGradYear(int gradYear){
+        this.gradYear = gradYear;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+
+
     @Override
     public String toString() {
         return String.format(
