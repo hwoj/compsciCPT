@@ -61,103 +61,384 @@ public class PersonalityController {
 
 
     @PostMapping(path = "/personality-testing", consumes = "application/json")
-    public String bad(@RequestBody String ous){
+    public String bad(@RequestBody String ous) {
         return ous;
     }
 
     @PostMapping(path = "/personality-test", consumes = "application/json")
-    public String receiveAnswers(@RequestBody String[] answers, @RequestParam(value = "id") int id) {
-        String[] responses;
-        responses = answers;
+    public String receiveAnswers(@RequestBody ResponseObjectToString answers, @RequestParam(value = "id") int id) {
+
+
 
         String JP;
         String EI;
         String TF;
         String SI;
 
-        int judging_score=0;
-        int extro_score =0;
-        int sensing_score=0;
-        int thinking_score=0;
+        int judging_score = 0;
+        int extro_score = 0;
+        int sensing_score = 0;
+        int thinking_score = 0;
+        int i = 0;
 
-        for (int i = 0; i < 9; i++) {
 
-            if (responses[i].equals("0")) {
-                judging_score++;
-            } else if (responses[i].equals("1")) {
-                judging_score += 2;
-            } else if (responses[i].equals("2")) {
-                judging_score += 3;
-            } else {
-                judging_score += 4;
-            }
+        if (answers.getAnswer1().equals("0")) {
+            judging_score++;}
+        else if (answers.getAnswer1().equals(("1"))) {
+            judging_score += 2;
+        }
+        else if (answers.getAnswer1().equals("2")) {
+            judging_score +=3;
+        }
+        else{
+            judging_score+=4;
         }
 
-        for (int i = 9; i < 17; i++) {
-            if (responses[i].equals("0")) {
-                extro_score++;
-            } else if (responses[i].equals("1")) {
-                extro_score += 2;
-            } else if (responses[i].equals("2")) {
-                extro_score += 3;
-            } else {
-                extro_score += 4;
-            }
+        if (answers.getAnswer2().equals("0")) {
+            judging_score++;}
+        else if (answers.getAnswer2().equals(("1"))) {
+            judging_score += 2;
         }
-        for (
-                int i = 17;
-                i < 25; i++) {
-            if (responses[i].equals("0")) {
-                thinking_score++;
-            } else if (responses[i].equals("1")) {
-                thinking_score += 2;
-            } else if (responses[i].equals("2")) {
-                thinking_score += 3;
-            } else {
-                thinking_score += 4;
-            }
+        else if (answers.getAnswer2().equals("2")) {
+            judging_score +=3;
         }
-        for (
-                int i = 25;
-                i < 32; i++) {
-            if (responses[i].equals("0")) {
-                sensing_score++;
-            } else if (responses[i].equals("1")) {
-                sensing_score += 2;
-            } else if (responses[i].equals("2")) {
-                sensing_score += 3;
-            } else {
-                sensing_score += 4;
-            }
-
+        else{
+            judging_score+=4;
         }
 
-        if (judging_score >= 17) {
-            JP = "J";
+        if (answers.getAnswer3().equals("0")) {
+            judging_score++;}
+        else if (answers.getAnswer3().equals(("1"))) {
+            judging_score += 2;
+        }
+        else if (answers.getAnswer3().equals("2")) {
+            judging_score +=3;
+        }
+        else{
+            judging_score+=4;
+        }
+
+        if (answers.getAnswer4().equals("0")) {
+            judging_score++;}
+        else if (answers.getAnswer4().equals(("1"))) {
+            judging_score += 2;
+        }
+        else if (answers.getAnswer4().equals("2")) {
+            judging_score +=3;
+        }
+        else{
+            judging_score+=4;
+        }
+
+        if (answers.getAnswer5().equals("0")) {
+            judging_score++;}
+        else if (answers.getAnswer5().equals(("1"))) {
+            judging_score += 2;
+        }
+        else if (answers.getAnswer5().equals("2")) {
+            judging_score +=3;
+        }
+        else{
+            judging_score+=4;
+        }
+
+        if (answers.getAnswer6().equals("0")) {
+            judging_score++;}
+        else if (answers.getAnswer6().equals(("1"))) {
+            judging_score += 2;
+        }
+        else if (answers.getAnswer6().equals("2")) {
+            judging_score +=3;
+        }
+        else{
+            judging_score+=4;
+        }
+
+        if (answers.getAnswer7().equals("0")) {
+            judging_score++;}
+        else if (answers.getAnswer7().equals(("1"))) {
+            judging_score += 2;
+        }
+        else if (answers.getAnswer7().equals("2")) {
+            judging_score +=3;
+        }
+        else{
+            judging_score+=4;
+        }
+
+        if (answers.getAnswer8().equals("0")) {
+            judging_score++;}
+        else if (answers.getAnswer8().equals(("1"))) {
+            judging_score += 2;
+        }
+        else if (answers.getAnswer8().equals("2")) {
+            judging_score +=3;
+        }
+        else{
+            judging_score+=4;
+        }
+
+        if (answers.getAnswer9().equals("0")) {
+            extro_score++;
+        } else if (answers.getAnswer9().equals("1")) {
+            extro_score += 2;
+        } else if (answers.getAnswer9().equals("2")) {
+            extro_score += 3;
         } else {
-            JP = "P";
+            extro_score += 4;
         }
 
-        if (extro_score >= 17) {
-            EI = "E";
+        if (answers.getAnswer10().equals("0")) {
+            extro_score++;
+        } else if (answers.getAnswer10().equals("1")) {
+            extro_score += 2;
+        } else if (answers.getAnswer10().equals("2")) {
+            extro_score += 3;
         } else {
-            EI = "I";
+            extro_score += 4;
         }
 
-        if (thinking_score >= 17) {
-            TF = "T";
+        if (answers.getAnswer11().equals("0")) {
+            extro_score++;
+        } else if (answers.getAnswer11().equals("1")) {
+            extro_score += 2;
+        } else if (answers.getAnswer11().equals("2")) {
+            extro_score += 3;
         } else {
-            TF = "F";
+            extro_score += 4;
         }
 
-        if (sensing_score >= 17) {
-            SI = "S";
+        if (answers.getAnswer12().equals("0")) {
+            extro_score++;
+        } else if (answers.getAnswer12().equals("1")) {
+            extro_score += 2;
+        } else if (answers.getAnswer12().equals("2")) {
+            extro_score += 3;
         } else {
-            SI = "I";
+            extro_score += 4;
         }
 
-        return (EI + SI + TF + JP);
-    }
+        if (answers.getAnswer13().equals("0")) {
+            extro_score++;
+        } else if (answers.getAnswer13().equals("1")) {
+            extro_score += 2;
+        } else if (answers.getAnswer13().equals("2")) {
+            extro_score += 3;
+        } else {
+            extro_score += 4;
+        }
+
+        if (answers.getAnswer14().equals("0")) {
+            extro_score++;
+        } else if (answers.getAnswer14().equals("1")) {
+            extro_score += 2;
+        } else if (answers.getAnswer14().equals("2")) {
+            extro_score += 3;
+        } else {
+            extro_score += 4;
+        }
+
+        if (answers.getAnswer15().equals("0")) {
+            extro_score++;
+        } else if (answers.getAnswer15().equals("1")) {
+            extro_score += 2;
+        } else if (answers.getAnswer15().equals("2")) {
+            extro_score += 3;
+        } else {
+            extro_score += 4;
+        }
+
+        if (answers.getAnswer16().equals("0")) {
+            extro_score++;
+        } else if (answers.getAnswer16().equals("1")) {
+            extro_score += 2;
+        } else if (answers.getAnswer16().equals("2")) {
+            extro_score += 3;
+        } else {
+            extro_score += 4;
+        }
+
+        if (answers.getAnswer17().equals("0")) {
+            thinking_score++;
+        } else if (answers.getAnswer17().equals("1")) {
+            thinking_score += 2;
+        } else if (answers.getAnswer17().equals("2")) {
+            thinking_score += 3;
+        } else {
+            thinking_score += 4;
+        }
+
+        if (answers.getAnswer18().equals("0")) {
+            thinking_score++;
+        } else if (answers.getAnswer18().equals("1")) {
+            thinking_score += 2;
+        } else if (answers.getAnswer18().equals("2")) {
+            thinking_score += 3;
+        } else {
+            thinking_score += 4;
+        }
+
+        if (answers.getAnswer19().equals("0")) {
+            thinking_score++;
+        } else if (answers.getAnswer19().equals("1")) {
+            thinking_score += 2;
+        } else if (answers.getAnswer19().equals("2")) {
+            thinking_score += 3;
+        } else {
+            thinking_score += 4;
+        }
+
+        if (answers.getAnswer20().equals("0")) {
+            thinking_score++;
+        } else if (answers.getAnswer20().equals("1")) {
+            thinking_score += 2;
+        } else if (answers.getAnswer20().equals("2")) {
+            thinking_score += 3;
+        } else {
+            thinking_score += 4;
+        }
+
+        if (answers.getAnswer21().equals("0")) {
+            thinking_score++;
+        } else if (answers.getAnswer21().equals("1")) {
+            thinking_score += 2;
+        } else if (answers.getAnswer21().equals("2")) {
+            thinking_score += 3;
+        } else {
+            thinking_score += 4;
+        }
+
+        if (answers.getAnswer22().equals("0")) {
+            thinking_score++;
+        } else if (answers.getAnswer22().equals("1")) {
+            thinking_score += 2;
+        } else if (answers.getAnswer22().equals("2")) {
+            thinking_score += 3;
+        } else {
+            thinking_score += 4;
+        }
+
+        if (answers.getAnswer23().equals("0")) {
+            thinking_score++;
+        } else if (answers.getAnswer23().equals("1")) {
+            thinking_score += 2;
+        } else if (answers.getAnswer23().equals("2")) {
+            thinking_score += 3;
+        } else {
+            thinking_score += 4;
+        }
+
+        if (answers.getAnswer24().equals("0")) {
+            thinking_score++;
+        } else if (answers.getAnswer24().equals("1")) {
+            thinking_score += 2;
+        } else if (answers.getAnswer24().equals("2")) {
+            thinking_score += 3;
+        } else {
+            thinking_score += 4;
+        }
+
+        if (answers.getAnswer25().equals("0")) {
+            sensing_score++;
+        } else if (answers.getAnswer25().equals("1")) {
+            sensing_score += 2;
+        } else if (answers.getAnswer25().equals("2")) {
+            sensing_score += 3;
+        } else {
+            sensing_score += 4;
+        }
+
+        if (answers.getAnswer26().equals("0")) {
+            sensing_score++;
+        } else if (answers.getAnswer26().equals("1")) {
+            sensing_score += 2;
+        } else if (answers.getAnswer26().equals("2")) {
+            sensing_score += 3;
+        } else {
+            sensing_score += 4;
+        }
+
+        if (answers.getAnswer27().equals("0")) {
+            sensing_score++;
+        } else if (answers.getAnswer27().equals("1")) {
+            sensing_score += 2;
+        } else if (answers.getAnswer27().equals("2")) {
+            sensing_score += 3;
+        } else {
+            sensing_score += 4;
+        }
+
+        if (answers.getAnswer28().equals("0")) {
+            sensing_score++;
+        } else if (answers.getAnswer28().equals("1")) {
+            sensing_score += 2;
+        } else if (answers.getAnswer28().equals("2")) {
+            sensing_score += 3;
+        } else {
+            sensing_score += 4;
+        }
+
+        if (answers.getAnswer29().equals("0")) {
+            sensing_score++;
+        } else if (answers.getAnswer29().equals("1")) {
+            sensing_score += 2;
+        } else if (answers.getAnswer29().equals("2")) {
+            sensing_score += 3;
+        } else {
+            sensing_score += 4;
+        }
+
+        if (answers.getAnswer30().equals("0")) {
+            sensing_score++;
+        } else if (answers.getAnswer30().equals("1")) {
+            sensing_score += 2;
+        } else if (answers.getAnswer30().equals("2")) {
+            sensing_score += 3;
+        } else {
+            sensing_score += 4;
+        }
+
+        if (answers.getAnswer31().equals("0")) {
+            sensing_score++;
+        } else if (answers.getAnswer31().equals("1")) {
+            sensing_score += 2;
+        } else if (answers.getAnswer31().equals("2")) {
+            sensing_score += 3;
+        } else {
+            sensing_score += 4;
+        }
+
+        if (answers.getAnswer32().equals("0")) {
+            sensing_score++;
+        } else if (answers.getAnswer32().equals("1")) {
+            sensing_score += 2;
+        } else if (answers.getAnswer32().equals("2")) {
+            sensing_score += 3;
+        } else {
+            sensing_score += 4;
+        }
+
+        if(judging_score >=17)
+            { JP = "J"; }
+        else
+            { JP = "P"; }
+        if(extro_score >=17)
+            {EI = "E"; }
+        else
+            { EI = "I"; }
+
+        if(thinking_score >=17)
+            { TF = "T"; }
+        else
+            { TF = "F"; }
+
+        if(sensing_score >=17)
+            { SI = "S"; }
+        else
+            { SI = "I"; }
+
+        return(EI +SI +TF +JP);
+}
 
 
     @GetMapping("/json-stu")
