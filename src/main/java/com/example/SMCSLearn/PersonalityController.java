@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 
@@ -65,9 +66,8 @@ public class PersonalityController {
         return ous;
     }
 
-    @PostMapping(path = "/personality-test", consumes = "application/json")
-    public String receiveAnswers(@RequestBody ResponseObjectToString answers, @RequestParam(value = "id") int id) {
-
+    @PostMapping(path = "/personality-test/{userType}/{userEmail}", consumes = "application/json")
+    public String receiveAnswers(@RequestBody ResponseObjectToString answers, @PathVariable(value = "userType") String userType, @PathVariable(value = "userEmail") String userEmail) throws IOException {
 
 
         String JP;
@@ -83,99 +83,83 @@ public class PersonalityController {
 
 
         if (answers.getAnswer1().equals("0")) {
-            judging_score++;}
-        else if (answers.getAnswer1().equals(("1"))) {
+            judging_score++;
+        } else if (answers.getAnswer1().equals(("1"))) {
             judging_score += 2;
-        }
-        else if (answers.getAnswer1().equals("2")) {
-            judging_score +=3;
-        }
-        else{
-            judging_score+=4;
+        } else if (answers.getAnswer1().equals("2")) {
+            judging_score += 3;
+        } else {
+            judging_score += 4;
         }
 
         if (answers.getAnswer2().equals("0")) {
-            judging_score++;}
-        else if (answers.getAnswer2().equals(("1"))) {
+            judging_score++;
+        } else if (answers.getAnswer2().equals(("1"))) {
             judging_score += 2;
-        }
-        else if (answers.getAnswer2().equals("2")) {
-            judging_score +=3;
-        }
-        else{
-            judging_score+=4;
+        } else if (answers.getAnswer2().equals("2")) {
+            judging_score += 3;
+        } else {
+            judging_score += 4;
         }
 
         if (answers.getAnswer3().equals("0")) {
-            judging_score++;}
-        else if (answers.getAnswer3().equals(("1"))) {
+            judging_score++;
+        } else if (answers.getAnswer3().equals(("1"))) {
             judging_score += 2;
-        }
-        else if (answers.getAnswer3().equals("2")) {
-            judging_score +=3;
-        }
-        else{
-            judging_score+=4;
+        } else if (answers.getAnswer3().equals("2")) {
+            judging_score += 3;
+        } else {
+            judging_score += 4;
         }
 
         if (answers.getAnswer4().equals("0")) {
-            judging_score++;}
-        else if (answers.getAnswer4().equals(("1"))) {
+            judging_score++;
+        } else if (answers.getAnswer4().equals(("1"))) {
             judging_score += 2;
-        }
-        else if (answers.getAnswer4().equals("2")) {
-            judging_score +=3;
-        }
-        else{
-            judging_score+=4;
+        } else if (answers.getAnswer4().equals("2")) {
+            judging_score += 3;
+        } else {
+            judging_score += 4;
         }
 
         if (answers.getAnswer5().equals("0")) {
-            judging_score++;}
-        else if (answers.getAnswer5().equals(("1"))) {
+            judging_score++;
+        } else if (answers.getAnswer5().equals(("1"))) {
             judging_score += 2;
-        }
-        else if (answers.getAnswer5().equals("2")) {
-            judging_score +=3;
-        }
-        else{
-            judging_score+=4;
+        } else if (answers.getAnswer5().equals("2")) {
+            judging_score += 3;
+        } else {
+            judging_score += 4;
         }
 
         if (answers.getAnswer6().equals("0")) {
-            judging_score++;}
-        else if (answers.getAnswer6().equals(("1"))) {
+            judging_score++;
+        } else if (answers.getAnswer6().equals(("1"))) {
             judging_score += 2;
-        }
-        else if (answers.getAnswer6().equals("2")) {
-            judging_score +=3;
-        }
-        else{
-            judging_score+=4;
+        } else if (answers.getAnswer6().equals("2")) {
+            judging_score += 3;
+        } else {
+            judging_score += 4;
         }
 
         if (answers.getAnswer7().equals("0")) {
-            judging_score++;}
-        else if (answers.getAnswer7().equals(("1"))) {
+            judging_score++;
+        } else if (answers.getAnswer7().equals(("1"))) {
             judging_score += 2;
-        }
-        else if (answers.getAnswer7().equals("2")) {
-            judging_score +=3;
-        }
-        else{
-            judging_score+=4;
+        } else if (answers.getAnswer7().equals("2")) {
+            judging_score += 3;
+        } else {
+            judging_score += 4;
         }
 
         if (answers.getAnswer8().equals("0")) {
-            judging_score++;}
-        else if (answers.getAnswer8().equals(("1"))) {
+            judging_score++;
+        } else if (answers.getAnswer8().equals(("1"))) {
             judging_score += 2;
-        }
-        else if (answers.getAnswer8().equals("2")) {
-            judging_score +=3;
-        }
-        else{
-            judging_score+=4;
+        } else if (answers.getAnswer8().equals("2")) {
+            judging_score += 3;
+        } else {
+            judging_score += 4;
         }
 
         if (answers.getAnswer9().equals("0")) {
@@ -418,27 +402,63 @@ public class PersonalityController {
             sensing_score += 4;
         }
 
-        if(judging_score >=17)
-            { JP = "J"; }
-        else
-            { JP = "P"; }
-        if(extro_score >=17)
-            {EI = "E"; }
-        else
-            { EI = "I"; }
+        if (judging_score >= 17) {
+            JP = "J";
+        } else {
+            JP = "P";
+        }
+        if (extro_score >= 17) {
+            EI = "E";
+        } else {
+            EI = "I";
+        }
 
-        if(thinking_score >=17)
-            { TF = "T"; }
-        else
-            { TF = "F"; }
+        if (thinking_score >= 17) {
+            TF = "T";
+        } else {
+            TF = "F";
+        }
 
-        if(sensing_score >=17)
-            { SI = "S"; }
-        else
-            { SI = "I"; }
+        if (sensing_score >= 17) {
+            SI = "S";
+        } else {
+            SI = "I";
+        }
 
-        return(EI +SI +TF +JP);
-}
+        if (userType.equals(("student"))) {
+            ObjectMapper mapper = new ObjectMapper();
+            File file = new File(getClass().getResource("/json/students.json").getFile());
+
+            User[] arr = mapper.readValue(file, User[].class);
+
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[j].getEmail().equals(userEmail)) {
+                    arr[j].setPersonality(EI + SI + TF + JP);
+                    FileOutputStream outputStream = new FileOutputStream(file);
+                    String jsonString = mapper.writeValueAsString(arr);
+                    byte[] strBytes = jsonString.getBytes();
+                    outputStream.write(strBytes);
+                    outputStream.close();
+                }
+            }
+        } else if (userType.equals("tutor")) {
+            ObjectMapper mapper = new ObjectMapper();
+            File file = new File(getClass().getResource("/json/tutors.json").getFile());
+
+            Tutor[] arr = mapper.readValue(file, Tutor[].class);
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[j].getEmail().equals(userEmail)) {
+                    arr[j].setPersonality(EI + SI + TF + JP);
+                    FileOutputStream outputStream = new FileOutputStream(file);
+                    String jsonString = mapper.writeValueAsString(arr);
+                    byte[] strBytes = jsonString.getBytes();
+                    outputStream.write(strBytes);
+                    outputStream.close();
+                }
+            }
+        }
+        return (EI + SI + TF + JP);
+    }
 
 
     @GetMapping("/json-stu")

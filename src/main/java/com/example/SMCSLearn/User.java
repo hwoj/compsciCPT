@@ -10,7 +10,7 @@ public class User {
     private String email;
     private String key;
     private int gradYear;
-    private String Personality;
+    private String personality;
     private int tutor_link;
 
     protected User() {}
