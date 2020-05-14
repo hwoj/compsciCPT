@@ -8,27 +8,8 @@ public class Admin {
     private String email;
     private String password;
 
-
-
-
-    public Admin(String fName, String lName, String email, String password) {
-        this.fName = fName;
-        this.lName = lName;
-        this.email = email;
-        this.password = password;
-
-
-
-
-    }
-
-    protected Admin() {
-
     protected Admin() {};
 
-
->>>>>>> 1d4d0fd466c4aa3cb3c774aa4a0191c7723801e1
-    }
     //Pre: Variables (id, fname, and last name) from front end
     //Post: Returns variables (id, fname, and last name) for backend use
     //Function: Takes information regarding the admin and adds it to the backend
@@ -63,13 +44,7 @@ public class Admin {
         return lName;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public String getPassword() {
-        return password;
-    }
 
     public void setfName(String fName) {
         this.fName = fName;

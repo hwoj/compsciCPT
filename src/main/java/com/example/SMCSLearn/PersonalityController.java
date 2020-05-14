@@ -66,8 +66,6 @@ public class PersonalityController {
         return ous;
     }
 
-
-    
     @PostMapping(path = "/personality-test/{userType}/{userEmail}", consumes = "application/json")
     public String receiveAnswers(@RequestBody ResponseObjectToString answers, @PathVariable(value = "userType") String userType, @PathVariable(value = "userEmail") String userEmail) throws IOException {
 
@@ -462,8 +460,6 @@ public class PersonalityController {
         return (EI + SN + TF + JP);
     }
 
-
-
     @GetMapping("/json-stu")
     public User[] jsonAttemptStu() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
@@ -757,9 +753,9 @@ public class PersonalityController {
         User[] GoodMatches = new User [50];
 
         int j = 0;
-        for (int i = 0; i < Tutor.length; i++){
-            if (Student[0].getSubject().equals(Tutor[i].getSubject())){
-                GoodMatches[j] = Tutor[i];
+        for (User user : Tutor) {
+            if (Student[0].getSubject().equals(user.getSubject())) {
+                GoodMatches[j] = user;
                 j++;
 
             }
