@@ -19,9 +19,15 @@ public class Admin {
 
 
 
+
     }
 
     protected Admin() {
+
+    protected Admin() {};
+
+
+>>>>>>> 1d4d0fd466c4aa3cb3c774aa4a0191c7723801e1
     }
     //Pre: Variables (id, fname, and last name) from front end
     //Post: Returns variables (id, fname, and last name) for backend use

@@ -9,6 +9,7 @@ public class User {
     private String password;
     private String email;
     private String key;
+    private String subject;
     private int gradYear;
     private String Personality;
     private int tutor_link;
@@ -25,6 +26,7 @@ public class User {
         this.password = password;
         this.gradYear = gradYear;
         this.key = key;
+        this.subject = subject;
     }
 
     //Pre: User's graduation year
@@ -53,6 +55,9 @@ public class User {
     //Function: To make user's auth key callable throughout backend
     public String getKey() {
         return key;
+    }
+    public String getSubject(){
+        return subject;
     }
 
     //Pre: User's first name (fname)
@@ -124,6 +129,10 @@ public class User {
     //Function: Sets the user's password
     public void setPassword(String password){
         this.password = password;
+    }
+
+    public void setSubject(String subject){
+        this.subject = subject;
     }
 
     //Pre: User's graduation year
