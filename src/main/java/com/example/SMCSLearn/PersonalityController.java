@@ -477,10 +477,11 @@ public class PersonalityController {
     }
 
 
-    public Long[][] personalitycompare() throws IOException {
+    public Long[][] personalitycompare(@PathVariable(value = "userType") String userType, @PathVariable(value = "userEmail") String userEmail) throws IOException {
 
         User[] Student = jsonAttemptStu();
-        User[] Tutor = subjectCompare();
+        User[] Tutor;
+        Tutor = subjectCompare(userType,userEmail);
 
         User Student_Type = Student[0];
         //User[] Tutor_Type = Tutor;
@@ -744,7 +745,9 @@ public class PersonalityController {
 
 
         return new Long[][]{great, good, bad};
+
     }
+
 
     public User[] subjectCompare(@PathVariable(value = "userType") String userType, @PathVariable(value = "userEmail") String userEmail) throws IOException {
 
