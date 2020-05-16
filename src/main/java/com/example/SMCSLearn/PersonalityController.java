@@ -476,6 +476,7 @@ public class PersonalityController {
         return arr;
     }
 
+
     public Long[][] personalitycompare() throws IOException {
 
         User[] Student = jsonAttemptStu();
@@ -582,7 +583,7 @@ public class PersonalityController {
                     bad[i] = Tutor_Type.getId();
                 }
             } else if (Student_Type.equals("ESTJ")) {
-                ////////////////////////////////////
+
                 //Best types for a relationship: ISTJ, ESFJ, ISFJ, ENTJ, INTJ, ISTP
                 if (Tutor_Type.getPersonality().equals("ISTJ") || Tutor_Type.getPersonality().equals("ESFJ") || Tutor_Type.getPersonality().equals("ISFJ") || Tutor_Type.getPersonality().equals("ENTJ")|| Tutor_Type.getPersonality().equals("INTJ")|| Tutor_Type.getPersonality().equals("ISTP")) {
                     great[i] = Tutor_Type.getId();
@@ -745,16 +746,26 @@ public class PersonalityController {
         return new Long[][]{great, good, bad};
     }
 
-    public User[] subjectCompare() throws IOException {
+    public User[] subjectCompare(@PathVariable(value = "userType") String userType, @PathVariable(value = "userEmail") String userEmail) throws IOException {
 
         User[] Student = jsonAttemptStu();
+        int compareID = 0;
+
+        if (userType.equals("student")){
+            for (User stu : Student){
+                if (stu.getEmail().equals(userEmail)){
+                    compareID = Math.toIntExact(stu.getId());
+                }
+            }
+        }
+
         User[] Tutor = jsonAttemptTut();
 
-        User[] GoodMatches = new User [50];
+        User[] GoodMatches = new User [Tutor.length];
 
         int j = 0;
         for (User user : Tutor) {
-            if (Student[0].getSubject().equals(user.getSubject())) {
+            if (Student[compareID].getSubject().equals(user.getSubject())) {
                 GoodMatches[j] = user;
                 j++;
 
@@ -764,7 +775,5 @@ public class PersonalityController {
         return GoodMatches;
 
     }
-
-
 
 }
