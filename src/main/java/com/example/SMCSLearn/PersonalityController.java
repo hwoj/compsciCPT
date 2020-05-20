@@ -484,7 +484,7 @@ public class PersonalityController {
         User[] Tutor;
         Tutor = subjectCompare(userType,userEmail,ID);
 
-        User Student_Type = Student[0];
+        User Student_Type = Student[studentID(ID)];
         //User[] Tutor_Type = Tutor;
         Long[] great = new Long[Tutor.length];
         Long[] good = new Long[Tutor.length];
@@ -780,11 +780,13 @@ public class PersonalityController {
 
 
     }
-    /*@PostMapping(path = "/matches", consumes = "admin/student-matches")
+
+
+    @PostMapping(path = "/matches", consumes = "admin/student-matches")
     private int studentID (@PathVariable(value = "ID")int ID){
         return ID;
     }
-    */
+
 
 
 
