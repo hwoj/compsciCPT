@@ -9,7 +9,7 @@ public class User {
     private String password;
     private String email;
     private String key;
-    private String subject;
+    private String[] subjects;
     private int gradYear;
     private String personality;
     private int tutor_link;
@@ -19,14 +19,14 @@ public class User {
     //Pre: Variables (fname, lname, emal, password, key, gradyear) from front end
     //Post: Returns variables (fname, lname, emal, password, key, gradyear) for backend use
     //Function: Takes information regarding the users and adds it to the backend
-    public User(String fName, String lName, String email, String password, String key, int gradYear){
+    public User(String fName, String lName, String email, String password, String key, int gradYear, String[] subjects){
         this.fName = fName;
         this.lName = lName;
         this.email = email;
         this.password = password;
         this.gradYear = gradYear;
         this.key = key;
-        this.subject = subject;
+        this.subjects = subjects;
     }
 
     //Pre: User's graduation year
@@ -56,8 +56,8 @@ public class User {
     public String getKey() {
         return key;
     }
-    public String getSubject(){
-        return subject;
+    public String[] getSubjects(){
+        return subjects;
     }
 
     //Pre: User's first name (fname)
@@ -131,8 +131,8 @@ public class User {
         this.password = password;
     }
 
-    public void setSubject(String subject){
-        this.subject = subject;
+    public void setSubjects(String[] subject){
+        this.subjects = subject;
     }
 
     //Pre: User's graduation year

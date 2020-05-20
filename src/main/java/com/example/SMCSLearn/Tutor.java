@@ -9,6 +9,7 @@ public class Tutor {
     private Long id;
     private String fName;
     private String lName;
+    private String[] subjects;
     private String password;
     private String email;
     private String key;
@@ -149,4 +150,7 @@ public class Tutor {
                 id, fName, lName, gradYear);
     }
 
+    public String[] getSubjects() {
+        return this.subjects;
+    }
 }

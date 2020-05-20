@@ -460,7 +460,7 @@ public class PersonalityController {
         return (EI + SN + TF + JP);
     }
 
-    @GetMapping("/json-stu")
+
     public User[] jsonAttemptStu() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         File file = new File(getClass().getResource("/json/students.json").getFile());
@@ -468,29 +468,31 @@ public class PersonalityController {
         User[] arr = mapper.readValue(file, User[].class);
         return arr;
     }
-    public User[] jsonAttemptTut() throws IOException {
+    public Tutor[] jsonAttemptTut() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         File file = new File(getClass().getResource("/json/tutors.json").getFile());
 
-        User[] arr = mapper.readValue(file, User[].class);
+        Tutor[] arr = mapper.readValue(file, Tutor[].class);
         return arr;
     }
 
-    @GetMapping("/matches")
+    @GetMapping("/matches/{stuID}")
     @CrossOrigin("http://localhost:4200")
-    public Long[][] personalitycompare(@PathVariable(value = "userType") String userType, @PathVariable(value = "userEmail") String userEmail,@PathVariable(value="ID")int ID) throws IOException {
+    public Long[][] personalitycompare(@PathVariable(value = "stuID") int stuID) throws IOException {
 
-        User[] Student = jsonAttemptStu();
-        User[] Tutor;
-        Tutor = subjectCompare(userType,userEmail,ID);
+        User[] students = jsonAttemptStu();
+        Tutor[] tutors;
 
-        User Student_Type = Student[studentID(ID)];
+        User student = students[stuID];
+        tutors = subjectCompare(student);
+
+
         //User[] Tutor_Type = Tutor;
-        Long[] great = new Long[Tutor.length];
-        Long[] good = new Long[Tutor.length];
-        Long[] bad = new Long[Tutor.length];
+        Long[] great = new Long[tutors.length];
+        Long[] good = new Long[tutors.length];
+        Long[] bad = new Long[tutors.length];
 
-        for (User Tutor_Type : Tutor) {
+        for (Tutor tutor_Type : tutors) {
 
             int i = Tutor_Type.getId().intValue();
 
@@ -749,42 +751,28 @@ public class PersonalityController {
 
     }
 
-    @PostMapping(path = "/matches", consumes = "admin/student-matches")
-    public User[] subjectCompare(@PathVariable(value = "userType") String userType, @PathVariable(value = "userEmail") String userEmail,@PathVariable(value = "ID")int ID) throws IOException {
 
-        User[] Student = jsonAttemptStu();
-        int compareID = ID;
+    public Tutor[] subjectCompare(User student) throws IOException {
 
-        if (userType.equals("student")){
-            for (User stu : Student){
-                if (stu.getEmail().equals(userEmail)){
-                    compareID = Math.toIntExact(stu.getId());
+
+        Tutor[] tutors = jsonAttemptTut();
+
+        Tutor[] goodMatches = new Tutor[tutors.length];
+        int filled = 0;
+
+        for(int i = 0; i < student.getSubjects().length; i++){
+            for(int j = 0; j < tutors.length; j++){
+                for(int k = 0; k < tutors[j].getSubjects().length; k++){
+                    if (student.getSubjects()[i].equals(tutors[j].getSubjects()[k])){
+                        goodMatches[filled] = tutors[j];
+                        filled++;
+                        break;
+                    }
                 }
             }
         }
 
-        User[] Tutor = jsonAttemptTut();
-
-        User[] GoodMatches = new User [Tutor.length];
-
-        int j = 0;
-        for (User user : Tutor) {
-            if (Student[compareID].getSubject().equals(user.getSubject())) {
-                GoodMatches[j] = user;
-                j++;
-
-            }
-        }
-
-        return GoodMatches;
-
-
-    }
-
-
-    @PostMapping(path = "/matches", consumes = "admin/student-matches")
-    private int studentID (@PathVariable(value = "ID")int ID){
-        return ID;
+        return goodMatches;
     }
 
 
