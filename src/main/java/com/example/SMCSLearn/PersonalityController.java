@@ -884,15 +884,22 @@ public class PersonalityController {
 
         Tutor[] tutors = jsonAttemptTut();
 
-        Tutor[] goodMatches = new Tutor[0];
+        Tutor[] goodMatches = new Tutor[]{};
+        int filled = 0;
         int j = 0;
-        for (Tutor user : tutors) {
-            if (student.getSubjects().equals(user.getSubjects())) {
-                goodMatches[j] = user;
-                j++;
-                Arrays.copyOf(goodMatches, j);
+        for (Tutor tut : tutors) {
+            if(student.getSubject1().equals(tut.getSubject1()) || student.getSubject1().equals(tut.getSubject2()) || student.getSubject1().equals(tut.getSubject3()) || student.getSubject2().equals(tut.getSubject1()) || student.getSubject2().equals(tut.getSubject2()) || student.getSubject2().equals(tut.getSubject3()) || student.getSubject3().equals(tut.getSubject1()) || student.getSubject3().equals(tut.getSubject2()) || student.getSubject3().equals(tut.getSubject3())){
+                goodMatches[filled] = tut;
+                filled++;
             }
         }
         return goodMatches;
     }
+
+    @GetMapping("/students")
+    @CrossOrigin("http://localhost:4200")
+    public User[] students() throws IOException {
+        return jsonAttemptStu();
+    }
+
 }
